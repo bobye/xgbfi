@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -34,11 +34,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EPPlus, Version=4.0.4.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPPlus.4.0.4\lib\net20\EPPlus.dll</HintPath>
+      <HintPath>../bin/lib/EPPlus.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NGenerics, Version=1.4.1.0, Culture=neutral, PublicKeyToken=e4b41be133ea7faf, processorArchitecture=MSIL">
-      <HintPath>..\packages\NGenerics.1.4.1.0\lib\net35\NGenerics.dll</HintPath>
+      <HintPath>../bin/lib/NGenerics.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -79,11 +79,11 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>rd /S /Q md $(TargetDir)lib</PreBuildEvent>
+    <PreBuildEvent>rm -rf md $(TargetDir)lib</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>md $(TargetDir)lib
-move /Y "$(TargetDir)*.dll" "$(TargetDir)lib"</PostBuildEvent>
+    <PostBuildEvent>mkdir $(TargetDir)lib
+mv $(TargetDir)*.dll $(TargetDir)lib</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
